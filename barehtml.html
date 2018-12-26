@@ -1,0 +1,166 @@
+<!DOCTYPE html> <!--The <!DOCTYPE html> declaration defines this document to be HTML5-->
+<html lang = "en"> <!--html element is the root element of the html-->
+
+    <head> <!--The <head> element contains meta information about the document
+        The <head> element is placed between the <html> tag and the <body> tag:
+            -->
+        <meta charset = "UTF-8">
+        <title> This is a modest webpage to get started. </title> <!--The <title> element 
+            specifies a title for the document-->
+    </head>
+
+    <body style="background-color: blueviolet"> <!--The <body> element contains the visible page content 
+        Note: Only the content inside the <body> section 
+             is displayed in a browser.-->
+        <div>
+            <h1> I just put a title here, this is h1-level title. </h1> <!--The <h1> element
+                 defines a large heading HTML headings are defined with the <h1> to <h6> tags.-->
+            <h2> This is on the other hand, a h2-level title. </h2>
+            <!--The style attribute is used to specify the styling of an element, 
+                like color, font, size etc.-->
+            <p style = "color:rgb(117, 0, 128)" title="displayed on mouse hover"> 
+                the tag p helps me to insert paragraphs into a given section of the document 
+            </p> <!--The <p> element defines a paragraph-->
+            <!-- svg: scalable vector graphics is used to render images or structures 
+            such as a rectangle like here. -->
+            <svg with = "300" height = "300">
+                <rect x = "0" y = "0" width = "300" height = "200" fill = "lightgreen"></rect>
+            </svg> 
+            <!-- Let's insert here a link: HTML links are defined with the <a> tag:
+                The link's destination is specified in the href attribute. 
+                Attributes are used to provide additional information about HTML elements.-->
+                <a href="https://github.com/ayguno">My GitHub Page</a>  
+            <!--Adding an image from web 
+            The source file (src), alternative text (alt)The value of the 
+            attribute can be read by screen readers. This way, someone 
+            "listening" to the webpage, e.g. a vision impaired person, 
+            can "hear" the element.The alt attribute is also useful if 
+            the image does not exist:, width, and height
+            are provided as attributes:-->
+            <hr>
+            <img src = "ozan.jpg" alt = "https://github.com/ayguno" width = "150" height="200">
+            <!--Adding an HTML button using button tag:-->
+            <!-- The HTML element is everything from the start tag to the end tag
+            HTML elements with no content are called empty elements.
+             Empty elements do not have an end tag, such as the <br> element
+            (which indicates a line break).
+            HTML tags are not case sensitive: <P> means the same as <p>.
+            Empty elements can be "closed" in the opening tag like this: <br />.-->
+            <hr>
+            <button>A button to click</button>
+            <hr>
+            <!--HTML lists are defined with the <ul> (unordered/bullet list) or the
+                 <ol> (ordered/numbered list) tag, followed by <li> tags (list items):-->
+            <h3>List of languages/tools I need to learn:</h3>         
+            <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>D3.js</li>
+            </ul>    
+            <h3>The order I would like to learn:</h3>
+            <ol>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>D3.js</li>         
+            </ol>
+            <!--Each HTML heading has a default size. However, you can specify the
+                 size for any heading with the style attribute, using the CSS 
+                 font-size property:-->
+            <h1 style ="font-size: 70px;">This is a custom size heading 
+                1 modified by CSS.</h1>
+            <!--The <hr> tag defines a thematic break in an HTML page,
+                 and is most often displayed as a horizontal rule.--> 
+            <hr>
+            <p>
+                    This <i><b>bold </b>italic containing</i> paragraph
+                    contains         a lot of spaces
+                    in the source         code,
+                    but the        browser 
+                    ignores it.
+            </p> 
+            <!--Use <br> if you want a line break (a new line) without starting a new paragraph:-->
+            <p style="background-color: darkblue; 
+                    color: blueviolet;
+                    font-family: Arial, Helvetica, sans-serif;
+                    font-size: 150%;
+                    text-align: center">
+                    This paragraph<br>
+                    contains         a lot of spaces
+                    in the source<br>         <b>code</b>,
+                    but the        browser 
+                    ignores it.
+            </p> 
+            <!--The HTML <pre> element defines preformatted text.
+            The text inside a <pre> element is displayed in a fixed-width 
+            font (usually Courier), and it preserves both spaces and line breaks:-->
+            <pre style="color: aquamarine;
+                        font-family: Arial, Helvetica, sans-serif;
+                        font-size: 50px;">
+                This is a pre-formatted text, it will maintain the
+                line breaks and this type of     spaces.
+                Formatting  <sub>subscript</sub> or <sup>superscript</sup>
+                <mark>marked text</mark> or 
+                <strong> stronger text</strong> or
+                <em> Emphasized text</em> or perhaps
+                <small> smaller text </small> or
+                <ins>inserted text</ins>    
+            </pre>                      
+            <!--The HTML <q> element defines a short quotation.
+                Browsers usually insert quotation marks around the <q> element.-->
+            <p style="color: chartreuse';text-align: center;"> 
+                Let's say <cite>today</cite> I am starting a new paragraph here: <q>
+                    Don't give up learning!
+                </q> said my mother.
+                <blockquote cite = "https://github.com/ayguno" >The citation.</blockquote>
+            </p>
+            <!--abrr tag will display the open form of an abbreviation upon mouse hover-->
+            <p>The <abbr title="World Health Organization">WHO</abbr> was founded in 1948.</p> 
+            <!--The HTML <address> element defines contact information (author/owner) 
+                of a document or an article.
+                The <address> element is usually displayed in italic. Most browsers 
+                will add a line break before and after the element.
+                -->
+            <p>I want to add here some address:</p>
+            <!--You can set the color of borders: using this CSS property-->
+            <address style= "border:4px solid Tomato;">    
+                Name Last Name
+                123 Main St. 
+                ACity AState 00000
+            </address>               
+        </div>    
+    </body>
+</html>
+<!--Useful tips:-->
+<!--See: https://www.w3schools.com/tags/ref_attributes.asp for HTML attribute reference-->
+<!--Inspect an HTML Element:
+Right-click on an element (or a blank area),
+ and choose "Inspect" or "Inspect Element" 
+ to see what elements are made up of (you will see both the 
+ HTML and the CSS). You can also edit the HTML or CSS on-the-fly
+  in the Elements or Styles panel that opens
+
+ -Setting the style of an HTML element, can be done with the style attribute.
+  The HTML style attribute has the following syntax:
+  <tagname style="property:value;"> 
+    - The property is a CSS property. The value is a CSS value.
+
+    - background-color property defines the background color for an HTML element.
+    - The color property defines the text color for an HTML element
+    - The font-family property defines the font to be used for an HTML element:
+    - The font-size property defines the text size for an HTML element:
+
+HTML also defines special elements for defining text with a special meaning.
+HTML uses elements like <b> and <i> for formatting output, like bold or italic text.
+Formatting elements were designed to display special types of text:
+    <b> - Bold text
+    <strong> - Important text
+    <i> - Italic text
+    <em> - Emphasized text
+    <mark> - Marked text
+    <small> - Small text
+    <del> - Deleted text
+    <ins> - Inserted text
+    <sub> - Subscript text
+    <sup> - Superscript text -->

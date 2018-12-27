@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<!--After learning basics, I will use external CSS and some advanced HTML features in this document-->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>A little more advanced example</title>
+        <!--An external style sheet is used to define the style for many HTML pages.
+With an external style sheet, you can change the look of an entire web site, by changing one file!
+To use an external style sheet, add a link to it in the <head> section of the HTML page:-->
+        <link rel = "stylesheet" href = "mystyles.css">
+
+    </head>
+    <body>
+        <h1>Welcome to this page!</h1>
+        
+        <!--
+        A block-level element always starts on a new line and takes up the full width available 
+        (stretches out to the left and right as far as it can).
+        The <div> element is a block-level element.
+        Block level elements in HTML:
+        <address><article><aside><blockquote><canvas><dd><div><dl><dt><fieldset><figcaption><figure>
+        <footer><form><h1>-<h6><header><hr><li><main><nav><noscript><ol><output><p><pre><section><table>
+        <tfoot><ul><video>
+
+        The <div> element is often used as a container for other HTML elements.
+        The <div> element has no required attributes, but style, class and id are common.
+        When used together with CSS, the <div> element can be used to style blocks of content:
+        -->
+
+        <div class = "avatar">
+         <!--inserted link as image -->
+        <a href="https://github.com/ayguno">
+            <img id = "profile" src = "ozan.jpg" alt = "My GitHub page">
+        </a>
+        </div>
+        <h3 class="avatar">
+            This button uses a JavaScript function to remove all
+            elements of the document with a particular class!
+        </h3>
+        <button onclick="myFunction()">Hide common sections</button>
+        <br><br>
+        <!--
+        Inline Elements
+        An inline element does not start on a new line and only takes up as much width as necessary.
+        Inline elements in HTML:
+        <a><abbr><acronym><b><bdo><big><br><button><code><dfn><em><i><input><kbd><label><map>
+        <object><q><samp><script><select><small><span><strong><sub><sup><textarea><time><tt><var>
+        
+        The <span> Element
+        The <span> element is often used as a container for some text.
+        The <span> element has no required attributes, but style, class and id are common.
+        When used together with CSS, the <span> element can be used to style parts of the text:
+        -->
+
+        <a href = "#B1">Move to <span id="important">bookmarked</span> section below.</a>
+
+        <!--inserted link as text with CSS properties in linked style sheet -->
+        <!--
+            The target attribute specifies where to open the linked document.
+            The target attribute can have one of the following values:
+            _blank - Opens the linked document in a new window or tab
+            _self - Opens the linked document in the same window/tab as it was clicked (this is default)
+            _parent - Opens the linked document in the parent frame
+            _top - Opens the linked document in the full body of the window
+            framename - Opens the linked document in a named frame
+        -->
+        <br>
+        <a href="https://github.com/ayguno", target="_blank"> Visit my GitHub Page </a>
+        <p class="avatar">This is a great learning experience.
+           
+        </p>
+         <!--To define a specific style for one special element, 
+            add an id attribute to the element:
+            Tip: The id attribute can be used on any HTML element.
+            Note: The id value is case-sensitive.
+            Note: The id value must contain at least one character, 
+            and must not contain whitespace (spaces, tabs, etc.)
+            The id attribute specifies a unique id for an HTML element 
+            (the value must be unique within the HTML document).
+            The id value can be used by CSS and JavaScript to perform 
+            certain tasks for a unique element with the specified id value.
+            In CSS, to select an element with a specific id, write a hash (#) 
+            character, followed by the id of the element:.-->
+        <p id = "p01">It is necessary to learn HTML,CSS and JavaScript to
+                        be able to develop effective Data visualization tools.
+        </p>
+        <button onclick="displayResult()">Modify this text</button>
+        <!--To define a style for special types of elements, 
+            add a class attribute to the element:
+            So, all HTML elements with the same class attribute will 
+            have the same format and style.
+        -->
+        <p class="note">As as side note: the ultimate goal here is to be able to learn D3.js 
+            for interactive data visualization. 
+        </p>
+        <br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br>
+        <hr>
+        <h2 id = "B1"> This page is intentionally long to allow bookmarking.</h2> 
+
+        <!--An HTML table is defined with the <table> tag.
+            Each table row is defined with the <tr> tag. 
+            A table header is defined with the <th> tag. 
+            By default, table headings are bold and centered. 
+            A table data/cell is defined with the <td> tag. 
+        -->
+        <table>
+            <caption>The shortlist of learning goals</caption>
+           <tr>
+            <th>Web Programming language</th>
+            <th>Priority</th>
+           </tr>
+           <tr>
+               <td>HTML</td>
+               <td>1st</td>
+           </tr> 
+           <tr>
+                <td>CSS</td>
+                <td>2nd</td>
+            </tr>
+            <tr>
+                <td>JavaScript</td>
+                <td>3rd</td>
+            </tr>  
+        </table> 
+
+        <!--iframe:
+        An iframe is used to display a web page within a web page.
+        An HTML iframe is defined with the <iframe> tag:
+        The src attribute specifies the URL (web address) of the inline frame page. 
+        Use the height and width attributes to specify the size of the iframe.
+T       attribute values are specified in pixels by default, but they can also be in 
+        percent (like "80%").
+        
+        By default, an iframe has a border around it. 
+        To remove the border, add the style attribute and use the CSS border property.
+        -->
+        <h2 id = "weather alert"> Let me add some weather information here as an iframe </h2>
+        <button onclick="modifyStyle()">Change Style of above sentence using JS</button>
+        <br>
+        <br>
+        <iframe src="https://accuweather.com"></iframe>
+        <!--
+            JavaScript can access elements with a specified class name by using 
+            the getElementsByClassName() method:
+
+            Example:
+            When a user clicks on a button, hide all elements 
+            with the class name "avatar":
+        -->
+        <script>
+        function myFunction(){
+            var x = document.getElementsByClassName("avatar");
+            for (var i = 0; i < x.length; i++){
+                x[i].style.display = "none";
+            }
+        }
+        </script>
+        <!--
+        Using The id Attribute in JavaScript:
+        JavaScript can access an element with a 
+        specified id by using the getElementById() method.
+        Example:
+        Use the id attribute to manipulate text with JavaScript:-->
+        <script>
+        function displayResult(){
+            document.getElementById('p01').innerHTML = "Learning is an amazing journey!"
+        }
+        </script>
+        <!--Another JS function to demonstrate how to change the style
+            of some HTML content interactively -->
+        <script>
+        function modifyStyle(){
+            /*change the style of the text associated with this id upon a button click*/
+            document.getElementById("weather alert").style.fontSize = "25px";
+            document.getElementById("weather alert").style.color = "red";
+            document.getElementById("weather alert").style.border = "solid 2x lightgreen";
+        }
+        </script>       
+    </body>
+</html>

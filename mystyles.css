@@ -1,0 +1,132 @@
+body {
+    background-color: #00021e   
+}
+h1{
+    color:whitesmoke;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center
+}
+h2{
+    color:whitesmoke;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center
+}
+p{
+    color: whitesmoke;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 15pt;
+    /*border adds a border around that element */
+    border: 1px solid powderblue;
+    /*padding adds a space between text and border */
+    padding: 30px;
+    /*The CSS margin property defines a margin (space) outside the border: */
+    margin: 30px;
+
+}
+
+p.note{
+    color: royalblue;
+    border: 0px solid mediumseagreen;
+    margin: 0px;
+    padding: 20px;
+    font-size: 20px;
+}
+
+
+iframe{
+    width: 100%;
+    height: 500px;
+    border: 2px solid tomato;
+}
+/*In CSS, to select elements with a specific class, write a period (.) character, 
+followed by the name of the class 
+
+Using The class Attribute in JavaScript
+The class name can also be used by JavaScript to perform certain tasks for elements 
+with the specified class name.
+
+JavaScript can access elements with a specified class name by using the 
+getElementsByClassName() method:
+*/
+
+.avatar{
+    padding: 20px;
+    border: 1px solid powderblue;
+    background-color: rgb(71, 83, 255);
+
+}
+
+/*In CSS, to select an element with a specific id, write a hash (#) 
+character, followed by the id of the element*/
+
+#profile{
+    width: 80pt;
+    height: 80pt;
+    border: 2px solid navajowhite;
+    /*Use the CSS float property to let the image float to the right or to the left of a text:*/
+    float:left;
+    
+}
+
+
+/*define a style for the element with the specific id:
+Note: The id of an element should be unique within a page, 
+so the id selector is used to select one unique element!*/
+
+#p01{
+    color: lightblue;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 0px;
+
+} 
+
+#important{
+    color: red;
+}
+
+/*HTML Link Colors
+By default, a link will appear like this (in all browsers):
+- An unvisited link is underlined and blue
+- A visited link is underlined and purple
+- An active link is underlined and red
+You can change the default colors, by using CSS: 
+Note the syntax:
+- a:
+*/
+a:link{
+    color: lightgreen;
+    background-color: transparent;
+    text-decoration: none;
+}
+a:visited{
+    color: pink;
+    background-color: transparent;
+    text-decoration: none;
+}
+a:hover{
+    color: red;
+    background-color: transparent;
+    text-decoration: underline;
+}
+a:active {
+    color: yellow;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+/* styling tables 
+If you do not specify a border for the table, it will be displayed without borders.
+A border is set using the CSS border property:
+*/
+
+table{
+    border: solid 2px snow;
+    color: aquamarine;
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+    border-spacing: 10px;
+    width: 150px;
+    background-color: gray;
+
+}

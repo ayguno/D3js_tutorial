@@ -24,12 +24,17 @@ p{
 
 }
 
+code{
+    color: whitesmoke;
+}
 p.note{
     color: royalblue;
     border: 0px solid mediumseagreen;
-    margin: 0px;
+    margin: auto;
     padding: 20px;
     font-size: 20px;
+    max-width: 100%;
+    display: block;
 }
 
 
@@ -51,24 +56,40 @@ getElementsByClassName() method:
 
 .avatar{
     padding: 20px;
-    border: 1px solid powderblue;
+    border-radius: 10px;
+    border:2px solid aquamarine;
     background-color: rgb(71, 83, 255);
+    max-width: 500px;
+    margin: auto;
+
+}
+
+.avatar:hover{
+    
+    background-color: rgb(249, 71, 255);
+    color: lightblue;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    overflow:scroll; /*overflow property adds scrollbars for long text when necessary */
 
 }
 
 /*In CSS, to select an element with a specific id, write a hash (#) 
 character, followed by the id of the element*/
 
-#profile{
-    width: 80pt;
-    height: 80pt;
-    border: 2px solid navajowhite;
+a.profile{
+    max-width: 100%;
+    padding: none;
+    margin: auto;
+    background-color: transparent;
     /*Use the CSS float property to let the image float to the right or to the left of a text:*/
-    float:left;
+    display: block;
+    border: none;
     
 }
 
-
+#profileimage{
+    max-width: 100px;
+}
 /*define a style for the element with the specific id:
 Note: The id of an element should be unique within a page, 
 so the id selector is used to select one unique element!*/
@@ -77,6 +98,8 @@ so the id selector is used to select one unique element!*/
     color: lightblue;
     font-family: Arial, Helvetica, sans-serif;
     border: 0px;
+    text-align: center;
+    margin: 0%;
 
 } 
 
@@ -93,26 +116,23 @@ You can change the default colors, by using CSS:
 Note the syntax:
 - a:
 */
-a:link{
+a:link, a:visited{
     color: lightgreen;
-    background-color: transparent;
+    background-color: navy;
+    border: 2px solid aqua;
     text-decoration: none;
+    text-align: center;
+    padding: 14px 25px;
+    display: inline-block;
 }
-a:visited{
-    color: pink;
-    background-color: transparent;
-    text-decoration: none;
+
+
+a:hover,a:active{
+    
+    background-color: magenta;
+    
 }
-a:hover{
-    color: red;
-    background-color: transparent;
-    text-decoration: underline;
-}
-a:active {
-    color: yellow;
-    background-color: transparent;
-    text-decoration: underline;
-}
+
 
 /* styling tables 
 If you do not specify a border for the table, it will be displayed without borders.
@@ -129,4 +149,59 @@ table{
     width: 150px;
     background-color: gray;
 
+}
+
+#weather_control{
+    color:navy;
+    text-align: center;
+    font-family: cursive;
+    background-color: blueviolet;
+    border: 1px solid thistle;
+    padding:20px;
+     
+    max-width: 100%;
+    margin: auto;
+}
+#weather_control:hover{
+    background-color: chocolate;
+}
+
+/* The iframe element weather is not displayed until user clicks to weather_control element,
+a java script function turnON controls this action */
+#weather{
+    display: none;
+}
+p.topbar{
+    color:azure;
+    background-color: blueviolet;
+    border: 2px solid whitesmoke;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 3vw;
+    text-align: left;
+    margin: auto;
+    padding: 3px;
+}
+
+.menu{
+    border: 1.5px solid azure;
+    background-color: cornflowerblue;
+    max-width: 20%;
+    display: inline-block;
+     
+}
+
+.content{
+    position: fixed;
+    border: none;
+    max-width: 78%;
+    height: 50%;
+    display: inline-block;
+    float: right;
+
+}
+
+button{
+    background-color: darkslateblue;
+    margin: auto;
+    display: block;
 }

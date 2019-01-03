@@ -152,9 +152,9 @@ function calculateArraySum(a_numeric_array = my_numbers){
     result += "The sum calculated using Array.reduce() method: "+ sum_reduce + "<br>";
     result += "The sum calculated using a for loop: "+ sum_for + "<br>";
 
-    if(sum_for == sum_reduce){
+    if(sum_for == sum_reduce) {
         result += "Results seem to be equal!";
-    }else{
+    } else {
         result += "There could be some difference in results!";
     }
 
@@ -198,4 +198,66 @@ function doesPass(a_numeric_array = my_numbers ){
 
      //Change the relevant document content using HTML id
      document.getElementById("dynamic-demo").innerHTML = result;                   
+}
+
+// Further practice HTML DOM
+
+// Note that event handler is now carried to JavaScript code
+// Upon click to content id "dynamic-demo" (a <p> element);
+// The navigation bar at the top will be completely removed from document:
+// Compare this behavior with changing visibility below
+document.getElementById("dynamic-demo").onclick = function(){
+   
+        document.getElementById("hnavbar").remove();    
+}
+
+//////////////////////////////////////////////////
+// Practicing  visibility of HTML elements
+//////////////////////////////////////////////////
+
+// Note the presence of HTML DOM Style Object reference at:
+
+// https://www.w3schools.com/jsref/dom_obj_style.asp
+
+//////////////////////////////////////////////////////////////////////////////////
+// Note that we managed to put a button that can hide or display 
+// a horizontal navbar upon user click, without actually removing the 
+// element from the document. Note that the space occupied by the object remains 
+// in the document (compare this with the display:none below)
+/////////////////////////////////////////////////////////////////////////////////
+
+document.getElementById("toolbarbtn1").onclick = function(){
+    // Check the current message in the button, if "Hide Toolbar", change the visibility to 'hidden';
+    if (document.getElementById("toolbarbtn1").innerHTML == "Hide ToolBar 1") {
+        document.getElementById("hnavbar").style.visibility = 'hidden';
+        document.getElementById("toolbarbtn1").innerHTML = "View ToolBar 1"; // Update button message to 'view'
+    } else { 
+    // Otherwise, change the visibility to 'visible';    
+        document.getElementById("hnavbar").style.visibility = 'visible';
+        document.getElementById("toolbarbtn1").innerHTML = "Hide ToolBar 1"; // Update button message to 'Hide'
+    }
+    
+}
+
+////////////////////////////////////////////////////////////////////////////////////////
+// Notice the difference of the similar operation when performed by changing the 
+// CSS style property display, using display:none
+// To experiment this we add another button, Hide Toolbar 2
+// Note the difference is: the space occupied by the HTML element is also removed
+// but element itself remains available in the document object and can be 
+// re-displayed.
+// This is a key behavior for building interactive documents using JavaScript and CSS
+/////////////////////////////////////////////////////////////////////////////////////////
+
+document.getElementById("toolbarbtn2").onclick = function(){
+    // Check the current message in the button, if "Hide Toolbar", change the display to 'none'
+    if (document.getElementById("toolbarbtn2").innerHTML == "Hide ToolBar 2") {
+        document.getElementById("hnavbar").style.display = 'none';
+        document.getElementById("toolbarbtn2").innerHTML = "View ToolBar 2"; // Update button message to 'view'
+    } else { 
+    // Otherwise, change the visibility to 'block' which makes it visible;    
+        document.getElementById("hnavbar").style.display = 'block';
+        document.getElementById("toolbarbtn2").innerHTML = "Hide ToolBar 2"; // Update button message to 'Hide'
+    }
+    
 }

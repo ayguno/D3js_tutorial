@@ -10,15 +10,17 @@
         <!--example construction of a horizontal navbar, also see: nav_bars2_style.css -->   
         <!--A navigation bar is basically a list of links,
             so using the <ul> and <li> elements makes perfect sense:-->   
-        <ul>
+        <ul id = "hnavbar">
             <li><a href="index.html" >Home</a></li>
             <li><a href="news.html">News</a></li>
             <li><a href="work.html">Work</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
-        <hr>
+        
         <br>
-        <div class="main-content">
+        <button id="toolbarbtn2">Hide ToolBar 2</button>
+        <button id="toolbarbtn1">Hide ToolBar 1</button>
+        <br><br><br>            
                 
                 <div class="dropdown"> <!--This is the main container for our dropdown menu -->
                     <button class="dropbtn">Dropdown</button> <!--The button that controls dropdown menu -->
@@ -37,14 +39,12 @@
                         <a href = "#" onclick="">Menu Item 12</a> 
                         <a href = "#" onclick="">Menu Item 13</a> 
                     </div>
-                </div>
-                
-                <br><br><br><br>
-        
+
+                       
+                </div>              
                 <div class = "dynamic-content"> <!--New content to practice JavaScript-->
                     <p id = "dynamic-demo"> using for JS learning </p>
-                </div>
-        </div>
+                </div> 
         <p id = "demo"> using for JS learning </p>
         <script src="FirstScripts.js"></script>
         

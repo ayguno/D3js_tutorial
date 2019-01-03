@@ -104,14 +104,50 @@ li:hover{
     box-shadow: 0px 0px 8px 0px whitesmoke;
 }
 
-.main-content{
-    border: 1px solid whitesmoke;
-}
-
 .dynamic-content{
-    width: 78%;
-    border: 1px solid whitesmoke;
+    width: 79%;
+    border: none;
     float: right;
     margin: auto;
     text-align: center;
+}
+
+.dynamic-content:hover{
+    background-color: #685aad;
+    box-shadow: 0px 0px 8px 0px whitesmoke;
+}
+
+/* Style the toolbar buttons */
+#toolbarbtn1{
+    background-color: #685aad;
+    color: whitesmoke;
+    padding: 10px;
+    font-size: 16px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border: solid 1px whitesmoke;
+    cursor: pointer;
+    width: 15%;
+    float: right;
+}
+
+#toolbarbtn2{
+    background-color: #685aad;
+    color: whitesmoke;
+    padding: 10px;
+    font-size: 16px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border: solid 1px whitesmoke;
+    cursor: pointer;
+    width: 15%;
+    float: left;
+}
+
+#toolbarbtn1:hover {
+    background-color: #1f1f42;
+    box-shadow: 0px 0px 8px 0px whitesmoke;
+}
+
+#toolbarbtn2:hover{
+    background-color: #1f1f42;
+    box-shadow: 0px 0px 8px 0px whitesmoke;
 }

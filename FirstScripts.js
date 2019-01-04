@@ -261,3 +261,29 @@ document.getElementById("toolbarbtn2").onclick = function(){
     }
     
 }
+
+//////////////////////////////////////////////////
+// Practicing Event Listeners
+//////////////////////////////////////////////////
+
+// Note the presence of HTML DOM Events reference at:
+
+// https://www.w3schools.com/jsref/dom_obj_event.asp
+
+// We can also attach and remove events to specific HTML elements
+// using addEventListener and removeEventListenerFunctions
+
+// This also makes possible to attach multiple events to a given element
+
+// When user clicks to the Menu Item 10 it will hide the main content
+// When user click to the Menu Item 10 again, it will display the content back
+
+document.getElementById("menuitem10").addEventListener('click', function(){
+    var dycontent = document.getElementById("dynamic-demo");
+    if(dycontent.style.display != "none"){
+        dycontent.style.display = "none";
+    }else{
+        dycontent.style.display = "block";
+    }
+     
+})

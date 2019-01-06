@@ -282,8 +282,38 @@ document.getElementById("menuitem10").addEventListener('click', function(){
     var dycontent = document.getElementById("dynamic-demo");
     if(dycontent.style.display != "none"){
         dycontent.style.display = "none";
-    }else{
+    } else {
         dycontent.style.display = "block";
     }
      
 })
+
+///////////////////////////////////////////////////////////////////////
+//Arrow functions
+// Note that a function can be also written with arrows
+// sq(x) can be defined in this way:
+
+sq = x => x * x; 
+
+console.log(sq(4));
+///////////////////////////////////////////
+//JSON stringify
+// Useful when sending data in JSON format
+// Converts entire objet into one JSON string
+//The 3rd argument can be set to = 2 to make JSON in nicely formatted 
+// works for both objects and arrays
+console.log(JSON.stringify(person,null,2));
+console.log(JSON.stringify(students,null,2));
+
+// Working with JS modules
+// Sometimes we want to import longer chunks of code as js modules
+// Let's give an example:
+
+// import the object people from the module in the same directory (does not currently work in Chrome)
+//var people = import('people.js');
+//console.log(people);
+//Use a map function to extract people's First names and print them to console
+//people.map(function(pers){console.log(pers.firstName + "\n")});
+
+
+

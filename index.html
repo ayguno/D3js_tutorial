@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang = 'en'>
+	<head>
+		<meta charset="utf-8">
+		<title> Ozan D3 Learning</title>
+		<style type="text/css">
+
+			/* Style for bar plot */		
+			div.bar {
+					display: inline-block;
+					width: 20px;
+					height: 75px; /* We will change this later to make bar plot */
+					background-color: teal;
+
+			}
+
+
+		</style>
+		<script type="text/javascript" src ="d3/d3.v3.js" ></script>
+	</head>
+	<body>
+		
+		<svg width = "500px" height = "70px" >
+			<rect x = '0' y = '0' width = '500' height = '70' fill = "navy" />
+			<ellipse cx = '250' cy = "35" rx = '100' ry = '20' stroke = 'lightgreen'/>
+			<circle cx = '250' cy = "35" r = '25' fill = 'magenta' />
+			<line x1 ='0' y1 = '35' x2 = '500' y2 = '35' stroke = 'red'/>
+			<text x = '5' y = '60' fill = 'lightgreen'> Put some text here! </text>
+
+		</svg>
+
+		<script type="text/javascript">
+		
+		var dataset = []; // we have a new array to add 20 random data points
+		for(var i = 0; i < 20; i++){
+			dataset.push(Math.round(Math.random() * 40)); //Math.round() rounds up to nearest integer
+		}
+
+		
+
+		// We can also customize a function inside text
+		d3.select('body').selectAll('p')
+			.data(dataset)
+			.enter()
+			.append('p')
+			.text(function(d) { 
+				return "I can count up to " + d; 
+			})
+			.style('color',function (d) {
+
+				if (d >= 15){
+					return "red";
+				} else {
+					return "black";
+				}
+
+			});
+		
+		// A simple bar chart using 'div's as rectangles
+		d3.select('body').selectAll('div')
+			.data(dataset) // Note that .data() can expand the bar plot as data gr
+			.enter()
+			.append('div')
+			.attr('class','bar')
+			.style('height', function(d){
+
+				// Note that height is returned as string as
+				// expected by the .style(,) syntax
+
+				var barHeight = d * 5; // Scale each data point by factor of 5
+
+				return barHeight +"px";
+
+			})
+			.style('margin-right','2px'); // add some space to the right of each bar, to space things out
+		
+		d3.select('body').data([0,1,2,3]).enter().append('br');
+
+
+		//////////////////////////////////////////////	
+		// Using SVG for Data-driven shapes	
+		//////////////////////////////////////////////
+
+		var w = 500;
+		var h = 50;
+		var svg = d3.select('body')
+					.append('svg')
+					.attr('width',w)
+					.attr('height',h); // This creates (appends to the end) a reusable SVG canvas
+					// by variabilizing the core canvas we safe ourselves some code so that we can reuse as a variable to add different shapes based on data
+
+
+		var dataset = [ 5, 10, 15, 20, 25 ];
+		// we will use same dataset to add data-driven shapes to this canvas
+		var circles = svg.selectAll('circle')
+							.data(dataset)
+							.enter()
+							.append('circle');			
+		// To make it easy to reference all of the circles later, we can create a new variable to store references to them all.
+
+		// but all these circles still need positions and sizes, which we will add next:
+
+		circles.attr('cx', function(d,i){
+			return (i * 50) + 25; // Multiply each index with 50 and add 25 to get cx for each circle
+		})
+		.attr('cy', h/2) // note we defined canvas height before
+		.attr('r',function(d) {
+			return d; // use actual values in the array to define radius of each circle
+		})
+		.style('fill', function(d){ //conditionally color fill each circle based on array value
+
+			if (d > 15) {
+				return 'red';
+			} else {
+				return 'navy';
+			}
+
+		});
+
+		// Let's say we want to add axes to our canvas, now we can add that
+		// x-axis
+		svg.append('line')
+			.attr('x1',0)
+			.attr('x2',500)
+			.attr('y1',50)
+			.attr('y2',50)
+			.attr('stroke','navy')
+			.attr('stroke-width',3);
+
+		// y-axis
+		svg.append('line')
+			.attr('x1',0)
+			.attr('x2',0)
+			.attr('y1',50)
+			.attr('y2',0)
+			.attr('stroke','navy')
+			.attr('stroke-width',3);
+
+
+		d3.select('body').data([0,1,2,3]).enter().append('br');
+		// Now we’ll integrate everything we’ve learned so far to generate a simple bar chart with D3.
+
+		// we’ll adapt that code to draw the bars with SVG instead, giving us more flexibility over the visual presentation. Finally, we’ll add labels, so we can see the data values clearly.
+
+		var dataset = [ 5, 10, 13, 19, 21, 25, 22, 18, 15, 13,
+                11, 12, 15, 20, 18, 17, 16, 18, 23, 25 ] ;
+
+
+        // Let's decide on the size of the new SVG
+        // Width and height
+
+        var w = 500;
+        var h = 100;
+ 		var barPadding = 1;
+        // This inserts (appends) a new <svg> element just before the closing </body> tag, and assigns the SVG a width and height of 500 by 100 pixels. This statement also puts the result into our new variable called svg, so we can easily reference the new SVG without having to reselect it later:
+
+        var svg = d3.select('body')
+        			.append('svg')
+        			.attr('width',w)
+        			.attr('height',h);
+
+        // Next, instead of creating divs, we generate rects and add them to svg.
+        svg.selectAll('rect')
+        	.data(dataset)
+        	.enter()
+        	.append('rect')
+        	.attr('x',function(d,i){
+        		return i * (w/dataset.length); // dynamically position each bar based on available svg canvas width as well as the number of items in the array
+        	})
+        	.attr('y',function(d){
+        		return (h - d * 4) ; 
+        	})  // the top of each bar could be expressed as a relationship between the height of the SVG and the corresponding data value
+        	.attr('height',function (d) {
+        		return d * 5; // Height of the bars is value of array scaled by 3
+        	})
+        	.attr('width', dataset.length - barPadding) // dynamically size each rect based on how many data points we have and allow a fixed size of padding to seperate bars from each other
+        	.attr('fill',function(d) {
+
+        		return "rgb(0, 0, " + (d * 10) + ")"; // we can use data to drive color choice.Here, d is multiplied by 10, and then used as the blue value in an rgb() color definition. So the greater values of d (taller bars) will be more blue. Smaller values of d (shorter bars) will be less blue (closer to black).
+
+        	});
+
+
+        // Next, let's add data labels on the bar plot:
+        svg.selectAll('text')
+        	.data(dataset)
+        	.enter()
+        	.append('text')
+        	.text(function(d){
+        		return d;
+        	})
+        	.attr('x', function(d,i){
+        		return i * (w / dataset.length); //position x-axis of labels
+        	})
+        	.attr('y', function(d){
+        		return h - d * 4 + 15; // position y-axis of labels
+        	})
+        	.attr('fill','magenta')		
+        	.attr("font-family", "sans-serif");
+   			
+
+        d3.select('body').data([0,1,2,3]).enter().append('br');
+		
+        d3.select('body')
+        	.append('h2')
+        	.text("Drawing a scatterplot using D3")
+        	.style('color','magenta');
+
+        // Scatterplots using D3
+        
+        // 2D array: Now you can see that each of these 10 rows will correspond to one point in our visualization. With the row [5, 20], for example, we’ll use 5 as the x value, and 20 for the y.
+        var dataset = [
+                  [ 5,     20 ],
+                  [ 480,   90 ],
+                  [ 250,   50 ],
+                  [ 100,   33 ],
+                  [ 330,   95 ],
+                  [ 410,   12 ],
+                  [ 475,   44 ],
+                  [ 25,    67 ],
+                  [ 85,    21 ],
+                  [ 220,   88 ]
+              ];	
+
+        // Create a SVG element
+        var svg = d3.select('body')
+        			.append('svg')
+        			.attr('width',w)
+        			.attr('height',h);
+
+        // Instead of creating rects, however, we’ll make a circle for each data point:			
+        svg.selectAll('circle')
+        	.data(dataset)
+        	.enter()
+        	.append('circle') // Recall svg circles have attributes: cx,cy and r
+			.attr('cx',function(d){
+				return d[0]; // First element of each array is the x-value
+			})
+			.attr('cy',function(d){
+				return d[1] // y-value
+			})
+			.attr('r', 5)
+			.attr('fill','white') // Styling the circles that represent data points 
+			.attr('stroke','blue')
+			.attr('stroke-width',2);
+        
+		svg.selectAll('text') // Adding labels of data points
+			.data(dataset)
+			.enter()
+			.append('text')
+			.attr('x', function(d){
+				return d[0];
+			})		
+			.attr('y', function(d){
+							return d[1] - 5;
+						})
+			.text(function(d){
+				return d;
+			})
+			.attr("font-family", "sans-serif") // Font-styling
+   			.attr("font-size", "11px")
+   			.attr("fill", "magenta");
+
+   		d3.select('body').append('p')
+   			.text("Note that this scatterplot has quite a few problems,we will learn how to use scales and axis generators to fix these problems. Following that, we’ll make things interactive and learn how to update data on the fly.")	;
+
+   		d3.select('body').data([0,1,2,3]).enter().append('br');
+		
+        d3.select('body')
+        	.append('h2')
+        	.text("Scales")
+        	.style('color','magenta');	
+
+        // Set up an x-axis scale	
+        var xScale = d3.scale.linear()
+        					 .domain([0,d3.max(dataset,function(d){ return d[0]; })]) // Input values are expexted to range from 0 to maximum
+        					 .range([0,w]); //output range is from zero up to the svg width we choose
+
+        // Set up the y-axis scale
+        var yScale = d3.scale.linear()
+        					 .domain([0,d3.max(dataset,function(d){ return d[1]; })])
+        					 .range([0,h]);					 
+
+
+        // The scale functions are in place! Now all we need to do is use them. Simply modify the code where we create a circle for each data value
+        var svg = d3.select('body')
+        			.append('svg')
+        			.attr('width',w)
+        			.attr('height',h);
+
+        svg.selectAll('circle')
+        	.data(dataset)
+        	.enter()
+        	.append('circle')
+        	.attr('cx', function(d){
+        		return xScale(d[0]); // Use scaled x-axis values
+        	})
+        	.attr('cy', function(d){
+        		return yScale(d[1]); // Use scaled y-axis values
+        	})
+        	.attr('r',5)
+        	.attr('stroke', 'magenta')
+        	.attr('stroke-width',2);
+
+        //You may have noticed that smaller y values are at the top of the plot, and the larger y values are toward the bottom. Now that we’re using scales, it’s super easy to reverse that, so greater values are higher up, as you would expect. It’s just a matter of changing the output range of yScale
+		d3.select('body').data([0,1,2,3]).enter().append('br');
+        
+        d3.select('body').append('p')
+   			.text("You may have noticed that smaller y values are at the top of the plot, and the larger y values are toward the bottom. Now that we’re using scales, it’s super easy to reverse that, so greater values are higher up, as you would expect. It’s just a matter of reversing the output range of yScale");
+
+   		d3.select('body').data([0,1,2,3,4,5]).enter().append('br');
+
+
+   		// some elements are also getting cut off. Let’s introduce a padding variable:
+
+		var padding = 20;
+
+		// Set up the new x-axis scale	
+        var xScale = d3.scale.linear()
+        					 .domain([0,d3.max(dataset,function(d){ return d[0]; })]) // Input values are expexted to range from 0 to maximum
+        					 .range([padding,w - padding]); //output range is from zero up to the svg width we choose
+
+   		// Set up the new y-axis scale
+        var yScale = d3.scale.linear()
+        					 .domain([0,d3.max(dataset,function(d){ return d[1]; })])
+        					 .range([h - padding, padding]);	// reversed to correct the normal view
+
+
+   		var svg = d3.select('body')
+        			.append('svg')
+        			.attr('width',w)
+        			.attr('height',h);
+
+        svg.selectAll('circle')
+        	.data(dataset)
+        	.enter()
+        	.append('circle')
+        	.attr('cx', function(d){
+        		return xScale(d[0]); // Use scaled x-axis values
+        	})
+        	.attr('cy', function(d){
+        		return yScale(d[1]); // Use scaled y-axis values
+        	})
+        	.attr('r',5)
+        	.attr('fill','none')
+        	.attr('stroke', 'magenta')
+        	.attr('stroke-width',2);
+
+        svg.selectAll('text')
+        	.data(dataset)
+        	.enter()
+        	.append('text')
+        	.attr('x', function(d){
+        		return xScale(d[0] - padding/2);
+        	})
+        	.attr('y', function(d){
+        		return yScale(d[1] + padding/2);
+        	})
+        	.text(function(d){
+        		return d;
+        	})
+        	.attr('font-size','11');
+
+		</script>
+
+
+
+	</body>
+</html>
